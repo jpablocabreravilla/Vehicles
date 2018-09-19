@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles.Android", "Vehicle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles.iOS", "Vehicles\Vehicles.iOS\Vehicles.iOS.csproj", "{7052DF79-0F28-45B8-BDAB-9FCD6F953E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicles", "Vehicles\Vehicles\Vehicles.csproj", "{6ADA8365-0EB7-4C68-84B9-D089E46C8AE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles", "Vehicles\Vehicles\Vehicles.csproj", "{6ADA8365-0EB7-4C68-84B9-D089E46C8AE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
