@@ -1,6 +1,10 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Vehicles.Views;
+using Xamarin.Forms;
 
 namespace Vehicles.ViewModels
 {
@@ -12,5 +16,19 @@ namespace Vehicles.ViewModels
 		{
 			this.Vehicles = new VehiclesViewModel();
 		}
+
+		public ICommand AddVehicleCommand
+		{
+			get
+			{
+				return new RelayCommand(GoToAddVehicle);
+			}
+		}
+
+		private async void GoToAddVehicle()
+		{
+			await Application.Current.MainPage.Navigation.PushAsync(new AddVehiclePage());
+		}
+
 	}
 }

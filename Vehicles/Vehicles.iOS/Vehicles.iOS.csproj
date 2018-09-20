@@ -168,6 +168,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\CarRed.png" />
+    <BundleResource Include="Resources\NoVehicleCar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_add_circle.png" />
   </ItemGroup>
 </Project>

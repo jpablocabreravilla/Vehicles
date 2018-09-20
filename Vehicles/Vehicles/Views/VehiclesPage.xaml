@@ -5,6 +5,9 @@
              x:Class="Vehicles.Views.VehiclesPage"
 			 BindingContext="{Binding Main, Source={StaticResource Locator}}"
 			 Title="{i18n:Translate Vehicles}">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_action_add_circle" Command="{Binding AddVehicleCommand}"/>
+	</ContentPage.ToolbarItems>
     <ContentPage.Content>
 		<StackLayout
 			BindingContext="{Binding Vehicles}"
@@ -29,12 +32,17 @@
 									Source="{Binding ImageFullPath}"
 									WidthRequest="100">
 								</Image>
-								<Label
-									FontAttributes="Bold"
+								<StackLayout
 									Grid.Column="1"
-									Text="{Binding Brand}"
 									VerticalOptions="Center">
-								</Label>
+									<Label
+									FontAttributes="Bold"
+									Text="{Binding Brand}">
+									</Label>
+									<Label
+										Text="{Binding Specifications}">
+									</Label>
+								</StackLayout>
 								<Label
 									HorizontalOptions="End"
 									Grid.Column="2"
