@@ -40,5 +40,30 @@ namespace Vehicles.Helpers
 			get { return Resource.TurnOnInternet; }
 		}
 
+		public static string AddVehicle
+		{
+			get { return Resource.AddVehicle; }
+		}
+
+		public static string AddVehiclePage
+		{
+			get { return Resource.SpecificationsPlaceholder; }
+		}
+
+		public static string SpecificationsPlaceholder
+		{
+			get { return Resource.TurnOnInternet; }
+		}
+
+		public static string Price
+		{
+			get { return Resource.Price; }
+		}
+
+		public static string PricePlaceholder
+		{
+			get { return Resource.PricePlaceholder; }
+		}
+
 	}
 }

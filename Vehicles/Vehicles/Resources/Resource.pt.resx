@@ -132,4 +132,19 @@
   <data name="Vehicles" xml:space="preserve">
     <value>Viaturas</value>
   </data>
+  <data name="AddVehicle" xml:space="preserve">
+    <value>Adicionar Veiculo</value>
+  </data>
+  <data name="Specifications" xml:space="preserve">
+    <value>Especificações</value>
+  </data>
+  <data name="SpecificationsPlaceholder" xml:space="preserve">
+    <value>Especificações do veículo, por favor entra...!</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Preço!</value>
+  </data>
+  <data name="PricePlaceholder" xml:space="preserve">
+    <value>Introduza o preço de veículo por favor...!</value>
+  </data>
 </root>

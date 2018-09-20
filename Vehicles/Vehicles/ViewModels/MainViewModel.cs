@@ -12,6 +12,8 @@ namespace Vehicles.ViewModels
 	{
 		public VehiclesViewModel Vehicles { get; set; }
 
+		public AddVehicleViewModel AddVehicle { get; set; }
+
 		public MainViewModel()
 		{
 			this.Vehicles = new VehiclesViewModel();
@@ -27,6 +29,7 @@ namespace Vehicles.ViewModels
 
 		private async void GoToAddVehicle()
 		{
+			this.AddVehicle = new AddVehicleViewModel();
 			await Application.Current.MainPage.Navigation.PushAsync(new AddVehiclePage());
 		}
 

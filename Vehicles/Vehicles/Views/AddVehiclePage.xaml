@@ -1,12 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Vehicles.Views.AddVehiclePage">
+			 xmlns:i18n="clr-namespace:Vehicles.Helpers"
+             x:Class="Vehicles.Views.AddVehiclePage"
+			 BindingContext="{Binding Main, Source={StaticResource Locator}}"
+			 Title="{i18n:Translate AddVehicle}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Add Vehicle!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+		<StackLayout
+			BindingContext="{Binding AddVehiclePage}"
+			Padding="5">
+			
+			<Label 
+				Text="{i18n:Translate Specifications}">
+			</Label>
+			<Entry
+				Placeholder="{i18n:Translate SpecificationsPlaceholder}">
+			</Entry>
+
+			<Label 
+				Text="{i18n:Translate Price}">
+			</Label>
+			<Entry
+				Keyboard="Numeric"
+				Placeholder="{i18n:Translate PricePlaceholder}">
+			</Entry>
+			
+		</StackLayout>
     </ContentPage.Content>
 </ContentPage>

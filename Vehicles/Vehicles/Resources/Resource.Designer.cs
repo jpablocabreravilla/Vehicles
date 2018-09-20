@@ -70,6 +70,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Vehicle.
+        /// </summary>
+        public static string AddVehicle {
+            get {
+                return ResourceManager.GetString("AddVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -84,6 +93,42 @@ namespace Vehicles.Resources {
         public static string NoInternet {
             get {
                 return ResourceManager.GetString("NoInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Vehicle Price Please....
+        /// </summary>
+        public static string PricePlaceholder {
+            get {
+                return ResourceManager.GetString("PricePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifications.
+        /// </summary>
+        public static string Specifications {
+            get {
+                return ResourceManager.GetString("Specifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Vehicle Specifications please ....
+        /// </summary>
+        public static string SpecificationsPlaceholder {
+            get {
+                return ResourceManager.GetString("SpecificationsPlaceholder", resourceCulture);
             }
         }
         
