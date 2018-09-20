@@ -1,12 +1,14 @@
 ﻿namespace Vehicles.Services
 {
 	using System.Collections.Generic;
+	using System.Net.Http;
+	using System.Threading.Tasks;
 	using Newtonsoft.Json;
 	using Plugin.Connectivity;
 	using System;
-	using System.Net.Http;
-	using System.Threading.Tasks;
+	using Vehicles.Helpers;
 	using Vehicles.Models;
+	using Xamarin.Forms;
 
 	public class ApiServices
     {
@@ -18,16 +20,19 @@
 				return new Response
 				{
 					IsSuccess = false,
-					Message = "please turn on your internet settings",
+					Message = Languages.TurnOnInternet,
 				};
 			}
+
+			//var urlGoogle = Application.Current.Resources["UrlGoogle"].ToString();  --ERROR INEXPLICABLE , PREGUNTAR A ZULU
+
 			var isReachable = await CrossConnectivity.Current.IsRemoteReachable("google.com");
 			if (!isReachable)
 			{
 				return new Response
 				{
 					IsSuccess = false,
-					Message = "no internet connection",
+					Message = Languages.NoInternet,
 				};
 			}
 			return new Response

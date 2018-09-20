@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Vehicles.Models
 {
 	public class Vehicle
-	{
+	{	
 		public int VehicleId { get; set; }
 
 		public string Brand { get; set; }
@@ -34,7 +33,7 @@ namespace Vehicles.Models
 			{
 				if (string.IsNullOrEmpty(this.ImagePath))
 				{
-					return "noimage";
+					return "NoVehicleCar.png";
 				}
 
 				return $"https://pratice1-2018-iiapi.azurewebsites.net/{this.ImagePath.Substring(1)}";

@@ -7,6 +7,7 @@ using Vehicles.Models;
 using Vehicles.Services;
 using Xamarin.Forms;
 using GalaSoft.MvvmLight.Command;
+using Vehicles.Helpers;
 
 namespace Vehicles.ViewModels
 {
@@ -39,12 +40,24 @@ namespace Vehicles.ViewModels
 		private async void LoadVehicles()
 		{
 			this.IsRefreshing = true;
-			//var url = Application.Current.Resources["UrlAPI"].ToString();
-			var response = await this.apiService.GetList<Vehicle>("https://pratice1-2018-iiapi.azurewebsites.net/", "/api", "/Vehicles");
+
+			var connection = await this.apiService.CheckConnection();
+			if (!connection.IsSuccess)
+			{
+				this.IsRefreshing = false;
+				await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+				return;
+			}
+
+			var url = Application.Current.Resources["UrlAPI"].ToString();
+			var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+			var controller = Application.Current.Resources["UrlVehiclesController"].ToString();
+
+			var response = await this.apiService.GetList<Vehicle>(url,prefix,controller);
 			if (!response.IsSuccess)
 			{
 				this.IsRefreshing = false;
-				await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+				await Application.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
 				return;
 			}
 				var list = (List<Vehicle>)response.Result;
