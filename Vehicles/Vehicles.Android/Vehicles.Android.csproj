@@ -94,15 +94,14 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\NoVehicleCar.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Vehicles\Vehicles.csproj">
       <Project>{AD1AF9B9-839C-4A30-B47E-F1DF7E6FDE84}</Project>
       <Name>Vehicles</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\NoVehicleCar.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_action_add_circle.png" />

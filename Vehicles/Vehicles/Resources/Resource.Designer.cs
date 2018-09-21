@@ -88,6 +88,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must enter a Brand.
+        /// </summary>
+        public static string BrandError {
+            get {
+                return ResourceManager.GetString("BrandError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter the Brand ....
         /// </summary>
         public static string BrandPlaceholder {
@@ -142,6 +151,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must enter a Mileage.
+        /// </summary>
+        public static string MileageError {
+            get {
+                return ResourceManager.GetString("MileageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter the Mileage ....
         /// </summary>
         public static string MileagePlaceholder {
@@ -156,6 +174,15 @@ namespace Vehicles.Resources {
         public static string Model {
             get {
                 return ResourceManager.GetString("Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a Model greater than zero..
+        /// </summary>
+        public static string ModelError {
+            get {
+                return ResourceManager.GetString("ModelError", resourceCulture);
             }
         }
         
@@ -187,6 +214,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must enter a Owner.
+        /// </summary>
+        public static string OwnerError {
+            get {
+                return ResourceManager.GetString("OwnerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter the Owner ....
         /// </summary>
         public static string OwnerPlaceholder {
@@ -201,6 +237,15 @@ namespace Vehicles.Resources {
         public static string Price {
             get {
                 return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a price greater than zero..
+        /// </summary>
+        public static string PriceError {
+            get {
+                return ResourceManager.GetString("PriceError", resourceCulture);
             }
         }
         
@@ -232,6 +277,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must enter a Specification.
+        /// </summary>
+        public static string SpecificationsError {
+            get {
+                return ResourceManager.GetString("SpecificationsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Vehicle Specifications ....
         /// </summary>
         public static string SpecificationsPlaceholder {
@@ -255,6 +309,15 @@ namespace Vehicles.Resources {
         public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a Type.
+        /// </summary>
+        public static string TypeError {
+            get {
+                return ResourceManager.GetString("TypeError", resourceCulture);
             }
         }
         

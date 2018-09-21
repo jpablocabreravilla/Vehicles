@@ -189,4 +189,25 @@
   <data name="ChangeImage" xml:space="preserve">
     <value>Tocca l&amp;#39;immagine per cambiarla.!</value>
   </data>
+  <data name="BrandError" xml:space="preserve">
+    <value>Devi inserire un marchio!</value>
+  </data>
+  <data name="TypeError" xml:space="preserve">
+    <value>Devi inserire un tipo!</value>
+  </data>
+  <data name="OwnerError" xml:space="preserve">
+    <value>Devi inserire un proprietario!</value>
+  </data>
+  <data name="MileageError" xml:space="preserve">
+    <value>Devi inserire un chilometraggio!</value>
+  </data>
+  <data name="SpecificationsError" xml:space="preserve">
+    <value>Devi inserire una specifica!</value>
+  </data>
+  <data name="PriceError" xml:space="preserve">
+    <value>Devi inserire un prezzo maggiore di zero.!</value>
+  </data>
+  <data name="ModelError" xml:space="preserve">
+    <value>Devi inserire un modello maggiore di zero.!</value>
+  </data>
 </root>

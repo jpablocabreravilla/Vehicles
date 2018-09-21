@@ -6,9 +6,9 @@
 			 BindingContext="{Binding Main, Source={StaticResource Locator}}"
 			 Title="{i18n:Translate AddVehicle}">
 	<ContentPage.Content>
-		<ScrollView>
+		<ScrollView
+			BindingContext="{Binding AddVehicle}">
 			<StackLayout
-			BindingContext="{Binding AddVehiclePage}"
 			Padding="5">
 				<Image
 					Source="NoVehicleCar.png">
@@ -18,13 +18,11 @@
 					HorizontalOptions="Center"
 					Text="{i18n:Translate ChangeImage}">
 				</Label>
-				
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="*"/>
 					</Grid.ColumnDefinitions>
-					
 					<Grid.RowDefinitions>
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
@@ -33,9 +31,7 @@
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="1.5*"/>
-						<RowDefinition Height="*"/>
 					</Grid.RowDefinitions>
-					
 					<Label 
 						Grid.Column="0"
 						Grid.Row="0"
@@ -45,6 +41,7 @@
 					<Entry
 						Grid.Column="1"
 						Grid.Row="0"
+						Text="{Binding Brand}"
 						Placeholder="{i18n:Translate BrandPlaceholder}">
 					</Entry>
 					<Label 
@@ -56,6 +53,7 @@
 					<Entry
 						Grid.Column="1"
 						Grid.Row="1"
+						Text="{Binding Type}"
 						Placeholder="{i18n:Translate TypePlaceholder}">
 					</Entry>
 					<Label 
@@ -67,6 +65,7 @@
 					<Entry
 						Grid.Column="1"
 						Grid.Row="2"
+						Text="{Binding Owner}"
 						Placeholder="{i18n:Translate OwnerPlaceholder}">
 					</Entry>
 					<Label 
@@ -78,6 +77,8 @@
 					<Entry
 						Grid.Column="1"
 						Grid.Row="3"
+						Keyboard="Numeric"
+						Text="{Binding Model}"
 						Placeholder="{i18n:Translate ModelPlaceholder}">
 					</Entry>
 					<Label 
@@ -89,6 +90,8 @@
 					<Entry
 						Grid.Column="1"
 						Grid.Row="4"
+						Keyboard="Numeric"
+						Text="{Binding Mileage}"
 						Placeholder="{i18n:Translate MileagePlaceholder}">
 					</Entry>
 					<Label 
@@ -101,6 +104,7 @@
 						Grid.Column="1"
 						Grid.Row="5"
 						Keyboard="Numeric"
+						Text="{Binding Price}"
 						Placeholder="{i18n:Translate PricePlaceholder}">
 					</Entry>
 					<Label 
@@ -112,29 +116,22 @@
 					<Editor
 						Grid.Column="1"
 						Grid.Row="6"
+						Text="{Binding Specifications}"
 						VerticalOptions="FillAndExpand">
 					</Editor>
-					<Label 
-						Grid.Column="0"
-						Grid.Row="7"
-						Text="{i18n:Translate IsNegotiable}"
-						VerticalOptions="Center">
-					</Label>
-					<Entry
-						Grid.Column="1"
-						Grid.Row="7"
-						Placeholder="{i18n:Translate IsNegotiablePlaceholder}">
-					</Entry>
 				</Grid>
 				
 				<ActivityIndicator
+					IsRunning="{Binding IsRunning}"
 					VerticalOptions="CenterAndExpand">
 				</ActivityIndicator>
 
 				<Button
 					BackgroundColor="Navy"
 					BorderRadius="23"
+					Command="{Binding SaveCommand}"
 					HeightRequest="46"
+					IsEnabled="{Binding IsEnabled}"
 					Text="{i18n:Translate Save}"
 					TextColor="White">
 				</Button>

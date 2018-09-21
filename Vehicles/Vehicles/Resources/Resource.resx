@@ -189,4 +189,25 @@
   <data name="ChangeImage" xml:space="preserve">
     <value>Touch the image to change it.</value>
   </data>
+  <data name="BrandError" xml:space="preserve">
+    <value>You must enter a Brand</value>
+  </data>
+  <data name="TypeError" xml:space="preserve">
+    <value>You must enter a Type</value>
+  </data>
+  <data name="OwnerError" xml:space="preserve">
+    <value>You must enter a Owner</value>
+  </data>
+  <data name="MileageError" xml:space="preserve">
+    <value>You must enter a Mileage</value>
+  </data>
+  <data name="PriceError" xml:space="preserve">
+    <value>You must enter a price greater than zero.</value>
+  </data>
+  <data name="SpecificationsError" xml:space="preserve">
+    <value>You must enter a Specification</value>
+  </data>
+  <data name="ModelError" xml:space="preserve">
+    <value>You must enter a Model greater than zero.</value>
+  </data>
 </root>

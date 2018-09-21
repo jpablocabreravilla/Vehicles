@@ -111,7 +111,7 @@ namespace Vehicles.Helpers
 			get { return Resource.SpecificationsPlaceholder; }
 		}
 
-		public static string IsNegotiable
+		/*public static string IsNegotiable
 		{
 			get { return Resource.IsNegotiable; }
 		}
@@ -119,6 +119,7 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.IsNegotiablePlaceholder; }
 		}
+		*/
 
 		public static string Save
 		{
@@ -128,6 +129,41 @@ namespace Vehicles.Helpers
 		public static string ChangeImage
 		{
 			get { return Resource.Save; }
+		}
+
+		public static string BrandError
+		{
+			get { return Resource.BrandError; }
+		}
+
+		public static string TypeError
+		{
+			get { return Resource.TypeError; }
+		}
+
+		public static string OwnerError
+		{
+			get { return Resource.OwnerError; }
+		}
+
+		public static string MileageError
+		{
+			get { return Resource.MileageError; }
+		}
+
+		public static string PriceError
+		{
+			get { return Resource.PriceError; }
+		}
+
+		public static string SpecificationsError
+		{
+			get { return Resource.SpecificationsError; }
+		}
+
+		public static string ModelError
+		{
+			get { return Resource.ModelError; }
 		}
 	}
 }
