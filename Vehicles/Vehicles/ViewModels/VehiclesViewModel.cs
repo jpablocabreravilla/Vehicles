@@ -13,16 +13,20 @@ namespace Vehicles.ViewModels
 {
     public class VehiclesViewModel : BaseViewModel
     {
+
+		#region Attributes
 		private ApiService apiService;
 
 		private bool isRefreshing;
+		#endregion
 
+		#region Properties
 		private ObservableCollection<Vehicle> vehicles;
 
 		public ObservableCollection<Vehicle> Vehicles
 		{
 			get { return this.vehicles; }
-			set { this.SetValue(ref this.vehicles, value);  }
+			set { this.SetValue(ref this.vehicles, value); }
 		}
 
 		public bool IsRefreshing
@@ -30,13 +34,32 @@ namespace Vehicles.ViewModels
 			get { return this.isRefreshing; }
 			set { this.SetValue(ref this.isRefreshing, value); }
 		}
+		#endregion
 
+		#region Constructor
 		public VehiclesViewModel()
 		{
+			instance = this;
 			this.apiService = new ApiService();
 			this.LoadVehicles();
 		}
+		#endregion
 
+		#region Singleton
+		private static VehiclesViewModel instance;
+
+		public static VehiclesViewModel GetInstance()
+		{
+			if (instance == null)
+			{
+				return new VehiclesViewModel();
+			}
+
+			return instance;
+		}
+		#endregion
+
+		#region Metods
 		private async void LoadVehicles()
 		{
 			this.IsRefreshing = true;
@@ -65,8 +88,9 @@ namespace Vehicles.ViewModels
 				this.IsRefreshing = false;
 
 		}
+		#endregion
 
-
+		#region Comands
 		public ICommand RefreshCommand
 		{
 			get
@@ -74,7 +98,7 @@ namespace Vehicles.ViewModels
 				return new RelayCommand(LoadVehicles);
 			}
 		}
-
+		#endregion
 
 	}
 }

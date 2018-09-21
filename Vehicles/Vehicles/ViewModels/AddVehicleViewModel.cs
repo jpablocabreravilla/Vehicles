@@ -63,17 +63,7 @@
 
 		#endregion
 
-
-		#region Commands
-
-		public ICommand SaveCommand
-		{
-			get
-			{
-				return new RelayCommand(Save);
-			}
-		}
-
+		#region Metods
 		private async void Save()
 		{
 			if (string.IsNullOrEmpty(this.Brand))
@@ -82,7 +72,7 @@
 					Languages.Error,
 					Languages.BrandError,
 					Languages.Accept);
-					return;
+				return;
 			}
 
 
@@ -90,7 +80,7 @@
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
-					Languages.TypeError, 
+					Languages.TypeError,
 					Languages.Accept);
 				return;
 			}
@@ -213,12 +203,27 @@
 				return;
 			}
 
+			var newVehicle = (Vehicle)response.Result;
+			var viewModel = VehiclesViewModel.GetInstance();
+			viewModel.Vehicles.Add(newVehicle);
+			
 			this.isRunning = false;
 			this.IsEnabled = true;
 			await Application.Current.MainPage.Navigation.PopAsync();
 
 		}
 
+		#endregion
+
+		#region Commands
+
+		public ICommand SaveCommand
+		{
+			get
+			{
+				return new RelayCommand(Save);
+			}
+		}
 		#endregion
 
 	}
