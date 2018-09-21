@@ -40,9 +40,7 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.TurnOnInternet; }
 		}
-
-
-		// AddVehiclePage
+		
 		public static string AddVehicle
 		{
 			get { return Resource.AddVehicle; }
@@ -164,6 +162,11 @@ namespace Vehicles.Helpers
 		public static string ModelError
 		{
 			get { return Resource.ModelError; }
+		}
+
+		public static string NegativeNumbers
+		{
+			get { return Resource.NegativeNumbers; }
 		}
 	}
 }

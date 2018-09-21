@@ -9,8 +9,9 @@
 	using Vehicles.Helpers;
 	using Vehicles.Models;
 	using Xamarin.Forms;
+	using System.Text;
 
-	public class ApiServices
+	public class ApiService
     {
 		
 		public async Task<Response> CheckConnection()
@@ -40,7 +41,6 @@
 				IsSuccess = true,
 			};
 		}
-
 
 		public async Task<Response> GetList<T>(string urlBase, string Prefix, string Controller)
 		{
@@ -77,8 +77,40 @@
 
 		}
 
-
-    }
-
-
+		public async Task<Response> Post<T>(string urlBase, string Prefix, string Controller, T model)
+		{
+			try
+			{
+				var request = JsonConvert.SerializeObject(model);
+				var content = new StringContent(request, Encoding.UTF8, "application/json");
+				var client = new HttpClient();
+				client.BaseAddress = new Uri(urlBase);
+				var url = $"{Prefix}{Controller}";
+				var response = await client.PostAsync(url,content);
+				var answer = await response.Content.ReadAsStringAsync();
+				if (!response.IsSuccessStatusCode)
+				{
+					return new Response
+					{
+						IsSuccess = false,
+						Message = answer,
+					};
+				}
+				var obj = JsonConvert.DeserializeObject<T>(answer); ;
+				return new Response
+				{
+					IsSuccess = true,
+					Result = obj,
+				};
+			}
+			catch (Exception ex)
+			{
+				return new Response
+				{
+					IsSuccess = false,
+					Message = ex.Message,
+				};
+			}
+		}
+	}
 }

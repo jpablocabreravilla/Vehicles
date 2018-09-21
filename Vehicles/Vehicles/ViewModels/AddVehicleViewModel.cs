@@ -10,10 +10,13 @@
 	using Plugin.Media;
 	using Plugin.Media.Abstractions;
 	using Xamarin.Forms;
+	using Vehicles.Services;
 
 	public class AddVehicleViewModel : BaseViewModel
     {
 		#region Attributes
+		private ApiService apiService;
+
 		private bool isRunning;
 
 		private bool isEnabled;
@@ -54,6 +57,7 @@
 
 		public AddVehicleViewModel()
 		{
+			this.apiService = new ApiService();
 			this.IsEnabled = true;
 		}
 
@@ -81,6 +85,7 @@
 					return;
 			}
 
+
 			if (string.IsNullOrEmpty(this.Type))
 			{
 				await Application.Current.MainPage.DisplayAlert(
@@ -89,6 +94,7 @@
 					Languages.Accept);
 				return;
 			}
+
 
 			if (string.IsNullOrEmpty(this.Owner))
 			{
@@ -99,6 +105,7 @@
 				return;
 			}
 
+
 			if (string.IsNullOrEmpty(this.Model))
 			{
 				await Application.Current.MainPage.DisplayAlert(
@@ -107,6 +114,16 @@
 					Languages.Accept);
 				return;
 			}
+			var model = int.Parse(this.Model);
+			if (model < 0)
+			{
+				await Application.Current.MainPage.DisplayAlert(
+					Languages.Error,
+					Languages.NegativeNumbers,
+					Languages.Accept);
+				return;
+			}
+
 
 			if (string.IsNullOrEmpty(this.Mileage))
 			{
@@ -116,6 +133,35 @@
 					Languages.Accept);
 				return;
 			}
+			var mileaje = int.Parse(this.Mileage);
+			if (mileaje < 0)
+			{
+				await Application.Current.MainPage.DisplayAlert(
+					Languages.Error,
+					Languages.NegativeNumbers,
+					Languages.Accept);
+				return;
+			}
+
+
+			if (string.IsNullOrEmpty(this.Price))
+			{
+				await Application.Current.MainPage.DisplayAlert(
+					Languages.Error,
+					Languages.PriceError,
+					Languages.Accept);
+				return;
+			}
+			var price = decimal.Parse(this.Price);
+			if (price < 0)
+			{
+				await Application.Current.MainPage.DisplayAlert(
+					Languages.Error,
+					Languages.NegativeNumbers,
+					Languages.Accept);
+				return;
+			}
+
 
 			if (string.IsNullOrEmpty(this.Specifications))
 			{
@@ -125,15 +171,51 @@
 				return;
 			}
 
-			var price = decimal.Parse(this.Price);
-			if ( price < 0 )
+			this.isRunning = true;
+			this.IsEnabled = false;
+
+			var connection = await this.apiService.CheckConnection();
+			if (!connection.IsSuccess)
 			{
+				this.isRunning = false;
+				this.IsEnabled = true;
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
-					Languages.PriceError,
+					connection.Message,
 					Languages.Accept);
-					return;
+				return;
 			}
+
+			var vehicle = new Vehicle
+			{
+				Brand = this.Brand,
+				Type = this.Type,
+				Owner = this.Owner,
+				Model = model,
+				Mileage = mileaje,
+				Price = price,
+				Specifications = this.Specifications,
+			};
+
+			var url = Application.Current.Resources["UrlAPI"].ToString();
+			var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+			var controller = Application.Current.Resources["UrlVehiclesController"].ToString();
+			var response = await this.apiService.Post(url, prefix, controller, vehicle);
+
+			if (!response.IsSuccess)
+			{
+				this.isRunning = false;
+				this.IsEnabled = true;
+				await Application.Current.MainPage.DisplayAlert(
+					Languages.Error,
+					response.Message,
+					Languages.Accept);
+				return;
+			}
+
+			this.isRunning = false;
+			this.IsEnabled = true;
+			await Application.Current.MainPage.Navigation.PopAsync();
 
 		}
 

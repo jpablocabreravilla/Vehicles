@@ -201,13 +201,16 @@
   <data name="MileageError" xml:space="preserve">
     <value>Devi inserire un chilometraggio!</value>
   </data>
+  <data name="ModelError" xml:space="preserve">
+    <value>È necessario immettere un modello!</value>
+  </data>
+  <data name="PriceError" xml:space="preserve">
+    <value>È necessario immettere un prezzo!</value>
+  </data>
   <data name="SpecificationsError" xml:space="preserve">
     <value>Devi inserire una specifica!</value>
   </data>
-  <data name="PriceError" xml:space="preserve">
-    <value>Devi inserire un prezzo maggiore di zero.!</value>
-  </data>
-  <data name="ModelError" xml:space="preserve">
-    <value>Devi inserire un modello maggiore di zero.!</value>
+  <data name="NegativeNumbers" xml:space="preserve">
+    <value>Non è possibile immettere numeri negativi!</value>
   </data>
 </root>

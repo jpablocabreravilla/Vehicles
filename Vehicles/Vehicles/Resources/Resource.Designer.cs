@@ -178,7 +178,7 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must enter a Model greater than zero..
+        ///   Looks up a localized string similar to You must enter a Model.
         /// </summary>
         public static string ModelError {
             get {
@@ -192,6 +192,15 @@ namespace Vehicles.Resources {
         public static string ModelPlaceholder {
             get {
                 return ResourceManager.GetString("ModelPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is not possible to enter negative numbers.
+        /// </summary>
+        public static string NegativeNumbers {
+            get {
+                return ResourceManager.GetString("NegativeNumbers", resourceCulture);
             }
         }
         
@@ -241,7 +250,7 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must enter a price greater than zero..
+        ///   Looks up a localized string similar to You must enter a Price.
         /// </summary>
         public static string PriceError {
             get {

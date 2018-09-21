@@ -13,7 +13,7 @@ namespace Vehicles.ViewModels
 {
     public class VehiclesViewModel : BaseViewModel
     {
-		private ApiServices apiService;
+		private ApiService apiService;
 
 		private bool isRefreshing;
 
@@ -33,7 +33,7 @@ namespace Vehicles.ViewModels
 
 		public VehiclesViewModel()
 		{
-			this.apiService = new ApiServices();
+			this.apiService = new ApiService();
 			this.LoadVehicles();
 		}
 

@@ -202,12 +202,15 @@
     <value>You must enter a Mileage</value>
   </data>
   <data name="PriceError" xml:space="preserve">
-    <value>You must enter a price greater than zero.</value>
+    <value>You must enter a Price</value>
   </data>
   <data name="SpecificationsError" xml:space="preserve">
     <value>You must enter a Specification</value>
   </data>
   <data name="ModelError" xml:space="preserve">
-    <value>You must enter a Model greater than zero.</value>
+    <value>You must enter a Model</value>
+  </data>
+  <data name="NegativeNumbers" xml:space="preserve">
+    <value>It is not possible to enter negative numbers</value>
   </data>
 </root>
