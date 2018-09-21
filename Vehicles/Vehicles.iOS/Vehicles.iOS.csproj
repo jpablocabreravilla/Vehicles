@@ -171,6 +171,6 @@
     <BundleResource Include="Resources\ic_action_add_circle.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\NoVehicleCar.png" />
+    <BundleResource Include="Resources\NoVehicle.png" />
   </ItemGroup>
 </Project>

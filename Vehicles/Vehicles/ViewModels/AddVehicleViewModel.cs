@@ -15,6 +15,10 @@
 	public class AddVehicleViewModel : BaseViewModel
     {
 		#region Attributes
+		private MediaFile file;
+
+		private ImageSource imageSource;
+
 		private ApiService apiService;
 
 		private bool isRunning;
@@ -50,6 +54,12 @@
 			set { this.SetValue(ref this.isEnabled, value); }
 		}
 
+		public ImageSource ImageSource
+		{
+			get { return this.imageSource; }
+			set { this.SetValue(ref this.imageSource, value); }
+		}
+		
 		#endregion
 
 
@@ -59,6 +69,7 @@
 		{
 			this.apiService = new ApiService();
 			this.IsEnabled = true;
+			this.ImageSource = "NoVehicle";
 		}
 
 		#endregion
@@ -152,7 +163,6 @@
 				return;
 			}
 
-
 			if (string.IsNullOrEmpty(this.Specifications))
 			{
 				await Application.Current.MainPage.DisplayAlert(Languages.Error,
@@ -161,19 +171,25 @@
 				return;
 			}
 
-			this.isRunning = true;
+			this.IsRunning = true;
 			this.IsEnabled = false;
 
 			var connection = await this.apiService.CheckConnection();
 			if (!connection.IsSuccess)
 			{
-				this.isRunning = false;
+				this.IsRunning = false;
 				this.IsEnabled = true;
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
 					connection.Message,
 					Languages.Accept);
 				return;
+			}
+
+			byte[] imageArray = null;
+			if (this.file != null)
+			{
+				imageArray = FilesHelper.ReadFully(this.file.GetStream());
 			}
 
 			var vehicle = new Vehicle
@@ -185,6 +201,7 @@
 				Mileage = mileaje,
 				Price = price,
 				Specifications = this.Specifications,
+				ImageArray = imageArray, 
 			};
 
 			var url = Application.Current.Resources["UrlAPI"].ToString();
@@ -194,7 +211,7 @@
 
 			if (!response.IsSuccess)
 			{
-				this.isRunning = false;
+				this.IsRunning = false;
 				this.IsEnabled = true;
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -207,15 +224,62 @@
 			var viewModel = VehiclesViewModel.GetInstance();
 			viewModel.Vehicles.Add(newVehicle);
 			
-			this.isRunning = false;
+			this.IsRunning = false;
 			this.IsEnabled = true;
 			await Application.Current.MainPage.Navigation.PopAsync();
 
 		}
 
+
+		private async void ChangeImage()
+		{
+			await CrossMedia.Current.Initialize();
+			var source = await Application.Current.MainPage.DisplayActionSheet(
+			Languages.ImageSource,
+			Languages.Cancel,
+			null,
+			Languages.FromGallery,
+			Languages.NewPicture);
+			if (source == Languages.Cancel)
+			{
+				this.file = null;
+				return;
+			}
+			if (source == Languages.NewPicture)
+			{
+				this.file = await CrossMedia.Current.TakePhotoAsync(
+				new StoreCameraMediaOptions
+				{
+					Directory = "Sample",
+					Name = "test.jpg",
+					PhotoSize = PhotoSize.Small,
+				}
+				);
+			}
+			else
+			{
+				this.file = await CrossMedia.Current.PickPhotoAsync();
+			}
+			if (this.file != null)
+			{
+				this.ImageSource = ImageSource.FromStream(() =>
+				{
+					var stream = this.file.GetStream();
+					return stream;
+				});
+			}
+		}
+
 		#endregion
 
 		#region Commands
+		public ICommand ChangeImageCommand
+		{
+			get
+			{
+				return new RelayCommand(ChangeImage);
+			}
+		}
 
 		public ICommand SaveCommand
 		{

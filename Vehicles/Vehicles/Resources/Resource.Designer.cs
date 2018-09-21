@@ -106,6 +106,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Touch the image to change it..
         /// </summary>
         public static string ChangeImage {
@@ -120,6 +129,24 @@ namespace Vehicles.Resources {
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From gallery.
+        /// </summary>
+        public static string FromGallery {
+            get {
+                return ResourceManager.GetString("FromGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Where do you take the picture?.
+        /// </summary>
+        public static string ImageSource {
+            get {
+                return ResourceManager.GetString("ImageSource", resourceCulture);
             }
         }
         
@@ -201,6 +228,15 @@ namespace Vehicles.Resources {
         public static string NegativeNumbers {
             get {
                 return ResourceManager.GetString("NegativeNumbers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take a new picture.
+        /// </summary>
+        public static string NewPicture {
+            get {
+                return ResourceManager.GetString("NewPicture", resourceCulture);
             }
         }
         

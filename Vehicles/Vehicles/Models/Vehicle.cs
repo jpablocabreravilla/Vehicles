@@ -26,14 +26,14 @@ namespace Vehicles.Models
 		public bool IsNegotiable { get; set; }
 
 		public byte[] ImageArray { get; set; }
-
+		
 		public string ImageFullPath
 		{
 			get
 			{
 				if (string.IsNullOrEmpty(this.ImagePath))
 				{
-					return "NoVehicleCar.png";
+					return "NoVehicle";
 				}
 
 				return $"https://pratice1-2018-iiapi.azurewebsites.net/{this.ImagePath.Substring(1)}";

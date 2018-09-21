@@ -213,4 +213,16 @@
   <data name="NegativeNumbers" xml:space="preserve">
     <value>Il n’est pas possible d’entrer des nombres négatifs !</value>
   </data>
+  <data name="ImageSource" xml:space="preserve">
+    <value>Où prenez-vous la photo?</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>De la galerie</value>
+  </data>
+  <data name="NewPicture" xml:space="preserve">
+    <value>Prenez une nouvelle photo</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
 </root>
