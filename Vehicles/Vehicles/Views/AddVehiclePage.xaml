@@ -5,26 +5,140 @@
              x:Class="Vehicles.Views.AddVehiclePage"
 			 BindingContext="{Binding Main, Source={StaticResource Locator}}"
 			 Title="{i18n:Translate AddVehicle}">
-    <ContentPage.Content>
-		<StackLayout
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout
 			BindingContext="{Binding AddVehiclePage}"
 			Padding="5">
-			
-			<Label 
-				Text="{i18n:Translate Specifications}">
-			</Label>
-			<Entry
-				Placeholder="{i18n:Translate SpecificationsPlaceholder}">
-			</Entry>
+				<Image
+					Source="NoVehicleCar.png">
+				</Image>
+				<Label
+					FontSize="Small"
+					HorizontalOptions="Center"
+					Text="{i18n:Translate ChangeImage}">
+				</Label>
+				
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="1.5*"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					
+					<Label 
+						Grid.Column="0"
+						Grid.Row="0"
+						Text="{i18n:Translate Brand}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="0"
+						Placeholder="{i18n:Translate BrandPlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="1"
+						Text="{i18n:Translate Type}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="1"
+						Placeholder="{i18n:Translate TypePlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="2"
+						Text="{i18n:Translate Owner}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="2"
+						Placeholder="{i18n:Translate OwnerPlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="3"
+						Text="{i18n:Translate Model}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="3"
+						Placeholder="{i18n:Translate ModelPlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="4"
+						Text="{i18n:Translate Mileage}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="4"
+						Placeholder="{i18n:Translate MileagePlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="5"
+						Text="{i18n:Translate Price}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="5"
+						Keyboard="Numeric"
+						Placeholder="{i18n:Translate PricePlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="6"
+						Text="{i18n:Translate Specifications}"
+						VerticalOptions="Center">
+					</Label>
+					<Editor
+						Grid.Column="1"
+						Grid.Row="6"
+						VerticalOptions="FillAndExpand">
+					</Editor>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="7"
+						Text="{i18n:Translate IsNegotiable}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="7"
+						Placeholder="{i18n:Translate IsNegotiablePlaceholder}">
+					</Entry>
+				</Grid>
+				
+				<ActivityIndicator
+					VerticalOptions="CenterAndExpand">
+				</ActivityIndicator>
 
-			<Label 
-				Text="{i18n:Translate Price}">
-			</Label>
-			<Entry
-				Keyboard="Numeric"
-				Placeholder="{i18n:Translate PricePlaceholder}">
-			</Entry>
-			
-		</StackLayout>
-    </ContentPage.Content>
+				<Button
+					BackgroundColor="Navy"
+					BorderRadius="23"
+					HeightRequest="46"
+					Text="{i18n:Translate Save}"
+					TextColor="White">
+				</Button>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
 </ContentPage>

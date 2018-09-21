@@ -79,11 +79,92 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brand.
+        /// </summary>
+        public static string Brand {
+            get {
+                return ResourceManager.GetString("Brand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Brand ....
+        /// </summary>
+        public static string BrandPlaceholder {
+            get {
+                return ResourceManager.GetString("BrandPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touch the image to change it..
+        /// </summary>
+        public static string ChangeImage {
+            get {
+                return ResourceManager.GetString("ChangeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Negotiable ?.
+        /// </summary>
+        public static string IsNegotiable {
+            get {
+                return ResourceManager.GetString("IsNegotiable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to is negotiable ?.
+        /// </summary>
+        public static string IsNegotiablePlaceholder {
+            get {
+                return ResourceManager.GetString("IsNegotiablePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mileage.
+        /// </summary>
+        public static string Mileage {
+            get {
+                return ResourceManager.GetString("Mileage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Mileage ....
+        /// </summary>
+        public static string MileagePlaceholder {
+            get {
+                return ResourceManager.GetString("MileagePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string Model {
+            get {
+                return ResourceManager.GetString("Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Model ....
+        /// </summary>
+        public static string ModelPlaceholder {
+            get {
+                return ResourceManager.GetString("ModelPlaceholder", resourceCulture);
             }
         }
         
@@ -97,6 +178,24 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        public static string Owner {
+            get {
+                return ResourceManager.GetString("Owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Owner ....
+        /// </summary>
+        public static string OwnerPlaceholder {
+            get {
+                return ResourceManager.GetString("OwnerPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price.
         /// </summary>
         public static string Price {
@@ -106,11 +205,20 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter the Vehicle Price Please....
+        ///   Looks up a localized string similar to Enter the Vehicle Price ....
         /// </summary>
         public static string PricePlaceholder {
             get {
                 return ResourceManager.GetString("PricePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -124,7 +232,7 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter Vehicle Specifications please ....
+        ///   Looks up a localized string similar to Enter Vehicle Specifications ....
         /// </summary>
         public static string SpecificationsPlaceholder {
             get {
@@ -138,6 +246,24 @@ namespace Vehicles.Resources {
         public static string TurnOnInternet {
             get {
                 return ResourceManager.GetString("TurnOnInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the Type  ....
+        /// </summary>
+        public static string TypePlaceholder {
+            get {
+                return ResourceManager.GetString("TypePlaceholder", resourceCulture);
             }
         }
         

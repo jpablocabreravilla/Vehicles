@@ -147,4 +147,46 @@
   <data name="PricePlaceholder" xml:space="preserve">
     <value>Introduza o preço de veículo por favor...!</value>
   </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="BrandPlaceholder" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salvar&amp;#x0D;</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="TypePlaceholder" xml:space="preserve">
+    <value>Informe o</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Proprietário</value>
+  </data>
+  <data name="OwnerPlaceholder" xml:space="preserve">
+    <value>Digite o proprietário ...!</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Modelo</value>
+  </data>
+  <data name="ModelPlaceholder" xml:space="preserve">
+    <value>Digite o modelo ...!</value>
+  </data>
+  <data name="Mileage" xml:space="preserve">
+    <value>Quilometragem</value>
+  </data>
+  <data name="MileagePlaceholder" xml:space="preserve">
+    <value>Digite a milhagem ...!</value>
+  </data>
+  <data name="IsNegotiable" xml:space="preserve">
+    <value>É negociável?</value>
+  </data>
+  <data name="IsNegotiablePlaceholder" xml:space="preserve">
+    <value>Digite se é negociável ...!</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Toque na imagem para alterá-la.</value>
+  </data>
 </root>

@@ -15,6 +15,7 @@ namespace Vehicles.Helpers
 			Resource.Culture = ci;
 			DependencyService.Get<ILocalize>().SetLocale(ci);
 		}
+
 		public static string Accept
 		{
 			get { return Resource.Accept; }
@@ -40,30 +41,93 @@ namespace Vehicles.Helpers
 			get { return Resource.TurnOnInternet; }
 		}
 
+
+		// AddVehiclePage
 		public static string AddVehicle
 		{
 			get { return Resource.AddVehicle; }
 		}
 
-		public static string AddVehiclePage
+		public static string Brand
 		{
-			get { return Resource.SpecificationsPlaceholder; }
+			get { return Resource.Brand; }
+		}
+		public static string BrandPlaceholder
+		{
+			get { return Resource.BrandPlaceholder; }
 		}
 
-		public static string SpecificationsPlaceholder
+		public static string Type
 		{
-			get { return Resource.TurnOnInternet; }
+			get { return Resource.Type; }
+		}
+		public static string TypePlaceholder
+		{
+			get { return Resource.TypePlaceholder; }
+		}
+
+		public static string Owner
+		{
+			get { return Resource.Owner; }
+		}
+		public static string OwnerPlaceholder
+		{
+			get { return Resource.OwnerPlaceholder; }
+		}
+
+		public static string Model
+		{
+			get { return Resource.Model; }
+		}
+		public static string ModelPlaceholder
+		{
+			get { return Resource.ModelPlaceholder; }
+		}
+
+		public static string Mileage
+		{
+			get { return Resource.Mileage; }
+		}
+		public static string MileagePlaceholder
+		{
+			get { return Resource.MileagePlaceholder; }
 		}
 
 		public static string Price
 		{
 			get { return Resource.Price; }
 		}
-
 		public static string PricePlaceholder
 		{
 			get { return Resource.PricePlaceholder; }
 		}
 
+		public static string Specifications
+		{
+			get { return Resource.Specifications; }
+		}
+		public static string SpecificationsPlaceholder
+		{
+			get { return Resource.SpecificationsPlaceholder; }
+		}
+
+		public static string IsNegotiable
+		{
+			get { return Resource.IsNegotiable; }
+		}
+		public static string IsNegotiablePlaceholder
+		{
+			get { return Resource.IsNegotiablePlaceholder; }
+		}
+
+		public static string Save
+		{
+			get { return Resource.Save; }
+		}
+
+		public static string ChangeImage
+		{
+			get { return Resource.Save; }
+		}
 	}
 }

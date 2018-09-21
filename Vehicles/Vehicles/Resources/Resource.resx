@@ -139,12 +139,54 @@
     <value>Specifications</value>
   </data>
   <data name="SpecificationsPlaceholder" xml:space="preserve">
-    <value>Enter Vehicle Specifications please ...</value>
+    <value>Enter Vehicle Specifications ...</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
   <data name="PricePlaceholder" xml:space="preserve">
-    <value>Enter the Vehicle Price Please...</value>
+    <value>Enter the Vehicle Price ...</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="BrandPlaceholder" xml:space="preserve">
+    <value>Enter the Brand ...</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TypePlaceholder" xml:space="preserve">
+    <value>Enter the Type  ...</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="OwnerPlaceholder" xml:space="preserve">
+    <value>Enter the Owner ...</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="ModelPlaceholder" xml:space="preserve">
+    <value>Enter the Model ...</value>
+  </data>
+  <data name="Mileage" xml:space="preserve">
+    <value>Mileage</value>
+  </data>
+  <data name="MileagePlaceholder" xml:space="preserve">
+    <value>Enter the Mileage ...</value>
+  </data>
+  <data name="IsNegotiable" xml:space="preserve">
+    <value>Is Negotiable ?</value>
+  </data>
+  <data name="IsNegotiablePlaceholder" xml:space="preserve">
+    <value>is negotiable ?</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Touch the image to change it.</value>
   </data>
 </root>

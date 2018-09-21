@@ -139,12 +139,54 @@
     <value>Especificaciones</value>
   </data>
   <data name="SpecificationsPlaceholder" xml:space="preserve">
-    <value>Introduzca las especificaciones del vehículo por favor ...!</value>
+    <value>Ingrese las especificaciones  ...</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Precio</value>
   </data>
   <data name="PricePlaceholder" xml:space="preserve">
-    <value>Ingrese el precio del vehículo por favor ...!</value>
+    <value>Ingrese el precio ...</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="BrandPlaceholder" xml:space="preserve">
+    <value>Ingrese la marca de el Vehiculo ...</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="TypePlaceholder" xml:space="preserve">
+    <value>Introduzca el tipo ...</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Propietario</value>
+  </data>
+  <data name="OwnerPlaceholder" xml:space="preserve">
+    <value>Ingrese el propietario ...</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Modelo</value>
+  </data>
+  <data name="ModelPlaceholder" xml:space="preserve">
+    <value>Ingrese el modelo ...</value>
+  </data>
+  <data name="Mileage" xml:space="preserve">
+    <value>Kilometraje</value>
+  </data>
+  <data name="MileagePlaceholder" xml:space="preserve">
+    <value>Ingresa el Kilometraje ...</value>
+  </data>
+  <data name="IsNegotiable" xml:space="preserve">
+    <value>Es Negociable</value>
+  </data>
+  <data name="IsNegotiablePlaceholder" xml:space="preserve">
+    <value>Es Negociable?</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Toca la imagen para cambiarla.</value>
   </data>
 </root>
