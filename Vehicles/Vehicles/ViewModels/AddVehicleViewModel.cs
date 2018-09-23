@@ -10,7 +10,6 @@
 	using Plugin.Media;
 	using Plugin.Media.Abstractions;
 	using Xamarin.Forms;
-	using Vehicles.Services;
 
 	public class AddVehicleViewModel : BaseViewModel
     {
@@ -75,6 +74,45 @@
 		#endregion
 
 		#region Metods
+		private async void ChangeImage()
+		{
+			await CrossMedia.Current.Initialize();
+			var source = await Application.Current.MainPage.DisplayActionSheet(
+			Languages.ImageSource,
+			Languages.Cancel,
+			null,
+			Languages.FromGallery,
+			Languages.NewPicture);
+			if (source == Languages.Cancel)
+			{
+				this.file = null;
+				return;
+			}
+			if (source == Languages.NewPicture)
+			{
+				this.file = await CrossMedia.Current.TakePhotoAsync(
+				new StoreCameraMediaOptions
+				{
+					Directory = "Sample",
+					Name = "test.jpg",
+					PhotoSize = PhotoSize.Small,
+				}
+				);
+			}
+			else
+			{
+				this.file = await CrossMedia.Current.PickPhotoAsync();
+			}
+			if (this.file != null)
+			{
+				this.ImageSource = ImageSource.FromStream(() =>
+				{
+					var stream = this.file.GetStream();
+					return stream;
+				});
+			}
+		}
+
 		private async void Save()
 		{
 			if (string.IsNullOrEmpty(this.Brand))
@@ -134,8 +172,8 @@
 					Languages.Accept);
 				return;
 			}
-			var mileaje = int.Parse(this.Mileage);
-			if (mileaje < 0)
+			var mileage = int.Parse(this.Mileage);
+			if (mileage < 0)
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -198,7 +236,7 @@
 				Type = this.Type,
 				Owner = this.Owner,
 				Model = model,
-				Mileage = mileaje,
+				Mileage = mileage,
 				Price = price,
 				Specifications = this.Specifications,
 				ImageArray = imageArray, 
@@ -222,7 +260,21 @@
 
 			var newVehicle = (Vehicle)response.Result;
 			var viewModel = VehiclesViewModel.GetInstance();
-			viewModel.Vehicles.Add(newVehicle);
+			viewModel.Vehicles.Add(new VehicleItemViewModel
+			{
+
+				Brand = newVehicle.Brand,
+				Type = newVehicle.Type,
+				Owner = newVehicle.Owner,
+				Model = newVehicle.Model,
+				Mileage = newVehicle.Mileage,
+				Price = newVehicle.Price,
+				Specifications = newVehicle.Specifications,
+				ImagePath = newVehicle.ImagePath,
+				IsNegotiable = newVehicle.IsNegotiable,
+				ImageArray = newVehicle.ImageArray,
+			}
+			);
 			
 			this.IsRunning = false;
 			this.IsEnabled = true;
@@ -231,44 +283,7 @@
 		}
 
 
-		private async void ChangeImage()
-		{
-			await CrossMedia.Current.Initialize();
-			var source = await Application.Current.MainPage.DisplayActionSheet(
-			Languages.ImageSource,
-			Languages.Cancel,
-			null,
-			Languages.FromGallery,
-			Languages.NewPicture);
-			if (source == Languages.Cancel)
-			{
-				this.file = null;
-				return;
-			}
-			if (source == Languages.NewPicture)
-			{
-				this.file = await CrossMedia.Current.TakePhotoAsync(
-				new StoreCameraMediaOptions
-				{
-					Directory = "Sample",
-					Name = "test.jpg",
-					PhotoSize = PhotoSize.Small,
-				}
-				);
-			}
-			else
-			{
-				this.file = await CrossMedia.Current.PickPhotoAsync();
-			}
-			if (this.file != null)
-			{
-				this.ImageSource = ImageSource.FromStream(() =>
-				{
-					var stream = this.file.GetStream();
-					return stream;
-				});
-			}
-		}
+		
 
 		#endregion
 

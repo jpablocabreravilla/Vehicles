@@ -8,6 +8,7 @@ using Vehicles.Services;
 using Xamarin.Forms;
 using GalaSoft.MvvmLight.Command;
 using Vehicles.Helpers;
+using System.Linq;
 
 namespace Vehicles.ViewModels
 {
@@ -18,12 +19,15 @@ namespace Vehicles.ViewModels
 		private ApiService apiService;
 
 		private bool isRefreshing;
+
+		private ObservableCollection<VehicleItemViewModel> vehicles;
+
+
 		#endregion
 
 		#region Properties
-		private ObservableCollection<Vehicle> vehicles;
+		public ObservableCollection<VehicleItemViewModel> Vehicles
 
-		public ObservableCollection<Vehicle> Vehicles
 		{
 			get { return this.vehicles; }
 			set { this.SetValue(ref this.vehicles, value); }
@@ -84,7 +88,22 @@ namespace Vehicles.ViewModels
 				return;
 			}
 				var list = (List<Vehicle>)response.Result;
-				this.Vehicles = new ObservableCollection<Vehicle>(list);
+				var myList = list.Select(p => new VehicleItemViewModel
+				{
+					VehicleId = p.VehicleId,
+					Brand = p.Brand,
+					Type = p.Type,
+					Owner = p.Owner,
+					Model = p.Model,
+					Mileage = p.Mileage,
+					Price = p.Price,
+					Specifications = p.Specifications,
+					ImagePath = p.ImagePath,
+					IsNegotiable = p.IsNegotiable,
+					ImageArray = p.ImageArray,
+				}
+				);
+				this.Vehicles = new ObservableCollection<VehicleItemViewModel>(myList);
 				this.IsRefreshing = false;
 
 		}
