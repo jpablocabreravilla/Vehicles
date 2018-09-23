@@ -40,6 +40,8 @@
 
 		public string Specifications { get; set; }
 
+		public bool IsNegotiable { get; set; }
+
 		public bool IsRunning
 		{
 			get { return this.isRunning; }
@@ -253,7 +255,8 @@
 				Mileage = mileage,
 				Price = price,
 				Specifications = this.Specifications,
-				ImageArray = imageArray, 
+				ImageArray = imageArray,
+				IsNegotiable = this.IsNegotiable,
 			};
 
 			var url = Application.Current.Resources["UrlAPI"].ToString();

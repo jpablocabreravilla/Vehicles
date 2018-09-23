@@ -122,6 +122,18 @@
 						Text="{Binding Specifications}"
 						VerticalOptions="FillAndExpand">
 					</Editor>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="7"
+						Text="{i18n:Translate IsNegotiable}"
+						VerticalOptions="Center">
+					</Label>
+					<Switch
+						Grid.Column="1"
+						Grid.Row="7"
+						HorizontalOptions="End"
+						IsToggled="{Binding IsNegotiable}">
+					</Switch>
 				</Grid>
 				
 				<ActivityIndicator
