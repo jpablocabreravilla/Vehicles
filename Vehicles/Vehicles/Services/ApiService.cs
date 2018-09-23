@@ -113,6 +113,42 @@
 			}
 		}
 
+		public async Task<Response> Put<T>(string urlBase, string Prefix, string Controller, T model, int id)
+		{
+			try
+			{
+				var request = JsonConvert.SerializeObject(model);
+				var content = new StringContent(request, Encoding.UTF8, "application/json");
+				var client = new HttpClient();
+				client.BaseAddress = new Uri(urlBase);
+				var url = $"{Prefix}{Controller}/{id}";
+				var response = await client.PutAsync(url, content);
+				var answer = await response.Content.ReadAsStringAsync();
+				if (!response.IsSuccessStatusCode)
+				{
+					return new Response
+					{
+						IsSuccess = false,
+						Message = answer,
+					};
+				}
+				var obj = JsonConvert.DeserializeObject<T>(answer); ;
+				return new Response
+				{
+					IsSuccess = true,
+					Result = obj,
+				};
+			}
+			catch (Exception ex)
+			{
+				return new Response
+				{
+					IsSuccess = false,
+					Message = ex.Message,
+				};
+			}
+		}
+
 		public async Task<Response> Delete(string urlBase, string Prefix, string Controller, int id)
 		{
 			try

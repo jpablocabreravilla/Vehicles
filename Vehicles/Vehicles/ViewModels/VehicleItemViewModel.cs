@@ -7,6 +7,7 @@
 	using Vehicles.Helpers;
 	using Vehicles.Models;
 	using Vehicles.Services;
+	using Vehicles.Views;
 	using Xamarin.Forms;
 
 	public class VehicleItemViewModel : Vehicle
@@ -26,6 +27,19 @@
 		#endregion
 
 		#region Commands
+		public ICommand EditVehicleCommand
+		{
+			get
+			{
+				return new RelayCommand(EditVehicle);
+			}
+		}
+
+		private async  void EditVehicle()
+		{
+			MainViewModel.GetInstance().EditVehicle = new EditVehicleViewModel(this);
+			await Application.Current.MainPage.Navigation.PushAsync(new EditVehiclePage());
+		}
 
 		public ICommand DeleteVehicleCommand
 		{
@@ -35,11 +49,6 @@
 			}
 		}
 
-		#endregion
-
-		#region Metods
-
-		
 		private async void DeleteVehicle()
 		{
 			var answer = await Application.Current.MainPage.DisplayAlert(
@@ -71,11 +80,12 @@
 			}
 
 			var vehiclesViewModel = VehiclesViewModel.GetInstance();
-			var deletedVehicle = vehiclesViewModel.Vehicles.Where(p => p.VehicleId == this.VehicleId).FirstOrDefault();
+			var deletedVehicle = vehiclesViewModel.MyVehicles.Where(p => p.VehicleId == this.VehicleId).FirstOrDefault();
 			if (deletedVehicle != null)
 			{
-				vehiclesViewModel.Vehicles.Remove(deletedVehicle);
+				vehiclesViewModel.MyVehicles.Remove(deletedVehicle);
 			}
+			vehiclesViewModel.RefreshLIst();
 		}
 
 		#endregion

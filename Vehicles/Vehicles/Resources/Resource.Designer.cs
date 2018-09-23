@@ -160,6 +160,15 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Vehicle.
+        /// </summary>
+        public static string EditVehicle {
+            get {
+                return ResourceManager.GetString("EditVehicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -187,20 +196,11 @@ namespace Vehicles.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Negotiable ?.
+        ///   Looks up a localized string similar to Is negotiable ?.
         /// </summary>
         public static string IsNegotiable {
             get {
                 return ResourceManager.GetString("IsNegotiable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to is negotiable ?.
-        /// </summary>
-        public static string IsNegotiablePlaceholder {
-            get {
-                return ResourceManager.GetString("IsNegotiablePlaceholder", resourceCulture);
             }
         }
         

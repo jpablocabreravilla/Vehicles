@@ -181,10 +181,7 @@
     <value>Enter the Mileage ...</value>
   </data>
   <data name="IsNegotiable" xml:space="preserve">
-    <value>Is Negotiable ?</value>
-  </data>
-  <data name="IsNegotiablePlaceholder" xml:space="preserve">
-    <value>is negotiable ?</value>
+    <value>Is negotiable ?</value>
   </data>
   <data name="ChangeImage" xml:space="preserve">
     <value>Touch the image to change it.</value>
@@ -242,5 +239,8 @@
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
+  </data>
+  <data name="EditVehicle" xml:space="preserve">
+    <value>Edit Vehicle</value>
   </data>
 </root>

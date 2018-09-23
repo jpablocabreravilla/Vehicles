@@ -1,19 +1,23 @@
-﻿namespace Vehicles.ViewModels
-{
-	using System;
-	using System.Linq;
-	using System.Windows.Input;
-	using GalaSoft.MvvmLight.Command;
-	using Vehicles.Helpers;
-	using Vehicles.Models;
-	using Vehicles.Services;
-	using Plugin.Media;
-	using Plugin.Media.Abstractions;
-	using Xamarin.Forms;
+﻿using GalaSoft.MvvmLight.Command;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Input;
+using Vehicles.Helpers;
+using Vehicles.Models;
+using Vehicles.Services;
+using Xamarin.Forms;
 
-	public class AddVehicleViewModel : BaseViewModel
-    {
-		#region Attributes
+namespace Vehicles.ViewModels
+{
+	public class EditVehicleViewModel : BaseViewModel
+	{
+		#region Atributes
+		private Vehicle vehicle;
+
 		private MediaFile file;
 
 		private ImageSource imageSource;
@@ -24,21 +28,13 @@
 
 		private bool isEnabled;
 		#endregion
-		
+
 		#region Properties
-		public string Brand { get; set; }
-
-		public string Type { get; set; }
-
-		public string Owner { get; set; }
-
-		public string Model { get; set; }
-
-		public string Mileage { get; set; }
-
-		public string Price { get; set; }
-
-		public string Specifications { get; set; }
+		public Vehicle Vehicle
+		{
+			get { return this.vehicle; }
+			set { this.SetValue(ref this.vehicle, value); }
+		}
 
 		public bool IsRunning
 		{
@@ -57,21 +53,80 @@
 			get { return this.imageSource; }
 			set { this.SetValue(ref this.imageSource, value); }
 		}
-		
 		#endregion
 
-		#region Construcors
-
-		public AddVehicleViewModel()
+		#region Constructors
+		public EditVehicleViewModel(Vehicle vehicle)
 		{
+			this.vehicle = vehicle;
 			this.apiService = new ApiService();
 			this.IsEnabled = true;
-			this.ImageSource = "NoVehicle";
+			this.ImageSource = vehicle.ImageFullPath;
 		}
 
 		#endregion
 
 		#region Commands
+
+		public ICommand DeleteCommand
+		{
+			get
+			{
+				return new RelayCommand(Delete);
+			}
+		}
+
+		private async void Delete()
+		{
+			var answer = await Application.Current.MainPage.DisplayAlert(
+				Languages.Confirm,
+				Languages.DeleteConfirmation,
+				Languages.Yes,
+				Languages.No);
+
+			if (!answer)
+			{
+				return;
+			}
+
+			this.IsRunning = true;
+			this.IsEnabled = false;
+
+			var connection = await this.apiService.CheckConnection();
+			if (!connection.IsSuccess)
+			{
+				this.IsRunning = false;
+				this.IsEnabled = true;
+				await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
+				return;
+			}
+
+			var url = Application.Current.Resources["UrlAPI"].ToString();
+			var prefix = Application.Current.Resources["UrlPrefix"].ToString();
+			var controller = Application.Current.Resources["UrlVehiclesController"].ToString();
+			var response = await this.apiService.Delete(url, prefix, controller, this.Vehicle.VehicleId);
+			if (!response.IsSuccess)
+			{
+				this.IsRunning = false;
+				this.IsEnabled = true;
+				await Application.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
+				return;
+			}
+
+			var vehiclesViewModel = VehiclesViewModel.GetInstance();
+			var deletedVehicle = vehiclesViewModel.MyVehicles.Where(p => p.VehicleId == this.Vehicle.VehicleId).FirstOrDefault();
+			if (deletedVehicle != null)
+			{
+				vehiclesViewModel.MyVehicles.Remove(deletedVehicle);
+			}
+			vehiclesViewModel.RefreshLIst();
+
+			this.IsRunning = false;
+			this.IsEnabled = true;
+			await Application.Current.MainPage.Navigation.PopAsync();
+
+		}
+
 		public ICommand ChangeImageCommand
 		{
 			get
@@ -128,8 +183,8 @@
 		}
 
 		private async void Save()
-		{
-			if (string.IsNullOrEmpty(this.Brand))
+		{	//PREGUNTAR SI TODOS LOS CAMPOS SIN OBLIGATORIOS PARA SABER SI VAN O NO ALGUNAS VALIDACIONES
+			if (string.IsNullOrEmpty(this.Vehicle.Brand))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -137,9 +192,8 @@
 					Languages.Accept);
 				return;
 			}
-
-
-			if (string.IsNullOrEmpty(this.Type))
+			
+			if (string.IsNullOrEmpty(this.Vehicle.Type))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -147,9 +201,8 @@
 					Languages.Accept);
 				return;
 			}
-
-
-			if (string.IsNullOrEmpty(this.Owner))
+			
+			if (string.IsNullOrEmpty(this.Vehicle.Owner))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -158,8 +211,16 @@
 				return;
 			}
 
-
-			if (string.IsNullOrEmpty(this.Model))
+			if (this.Vehicle.Model < 0)
+			{
+				await Application.Current.MainPage.DisplayAlert(
+					Languages.Error,
+					Languages.NegativeNumbers,
+					Languages.Accept);
+				return;
+			}
+			var model = Convert.ToString(this.Vehicle.Model);
+			if (string.IsNullOrEmpty(model))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -167,8 +228,8 @@
 					Languages.Accept);
 				return;
 			}
-			var model = int.Parse(this.Model);
-			if (model < 0)
+
+			if (this.Vehicle.Mileage < 0)
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -176,9 +237,8 @@
 					Languages.Accept);
 				return;
 			}
-
-
-			if (string.IsNullOrEmpty(this.Mileage))
+			var mileage = Convert.ToString(this.Vehicle.Mileage);
+			if (string.IsNullOrEmpty(mileage))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -186,8 +246,8 @@
 					Languages.Accept);
 				return;
 			}
-			var mileage = int.Parse(this.Mileage);
-			if (mileage < 0)
+
+			if (this.Vehicle.Price < 0)
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -195,9 +255,8 @@
 					Languages.Accept);
 				return;
 			}
-
-
-			if (string.IsNullOrEmpty(this.Price))
+			var price = Convert.ToString(this.Vehicle.Price);
+			if (string.IsNullOrEmpty(price))
 			{
 				await Application.Current.MainPage.DisplayAlert(
 					Languages.Error,
@@ -205,23 +264,15 @@
 					Languages.Accept);
 				return;
 			}
-			var price = decimal.Parse(this.Price);
-			if (price < 0)
-			{
-				await Application.Current.MainPage.DisplayAlert(
-					Languages.Error,
-					Languages.NegativeNumbers,
-					Languages.Accept);
-				return;
-			}
-
-			if (string.IsNullOrEmpty(this.Specifications))
+			
+			if (string.IsNullOrEmpty(this.Vehicle.Specifications))
 			{
 				await Application.Current.MainPage.DisplayAlert(Languages.Error,
 					Languages.SpecificationsError,
 					Languages.Accept);
 				return;
 			}
+			//PREGUNTAR SI TODOS LOS CAMPOS SIN OBLIGATORIOS PARA SABER SI VAN O NO ALGUNAS VALIDACIONES
 
 			this.IsRunning = true;
 			this.IsEnabled = false;
@@ -242,24 +293,13 @@
 			if (this.file != null)
 			{
 				imageArray = FilesHelper.ReadFully(this.file.GetStream());
+				this.Vehicle.ImageArray = imageArray;
 			}
-
-			var vehicle = new Vehicle
-			{
-				Brand = this.Brand,
-				Type = this.Type,
-				Owner = this.Owner,
-				Model = model,
-				Mileage = mileage,
-				Price = price,
-				Specifications = this.Specifications,
-				ImageArray = imageArray, 
-			};
 
 			var url = Application.Current.Resources["UrlAPI"].ToString();
 			var prefix = Application.Current.Resources["UrlPrefix"].ToString();
 			var controller = Application.Current.Resources["UrlVehiclesController"].ToString();
-			var response = await this.apiService.Post(url, prefix, controller, vehicle);
+			var response = await this.apiService.Put(url, prefix, controller, this.Vehicle, this.Vehicle.VehicleId);
 
 			if (!response.IsSuccess)
 			{
@@ -274,9 +314,15 @@
 
 			var newVehicle = (Vehicle)response.Result;
 			var vehiclesViewModel = VehiclesViewModel.GetInstance();
+			var oldVehicle = vehiclesViewModel.MyVehicles.Where(p => p.VehicleId == this.Vehicle.VehicleId).FirstOrDefault();
+			if (oldVehicle != null)
+			{
+				vehiclesViewModel.MyVehicles.Remove(oldVehicle);
+			}
+
 			vehiclesViewModel.MyVehicles.Add(newVehicle);
 			vehiclesViewModel.RefreshLIst();
-			
+
 			this.IsRunning = false;
 			this.IsEnabled = true;
 			await Application.Current.MainPage.Navigation.PopAsync();

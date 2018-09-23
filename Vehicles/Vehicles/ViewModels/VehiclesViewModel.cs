@@ -26,8 +26,9 @@ namespace Vehicles.ViewModels
 		#endregion
 
 		#region Properties
-		public ObservableCollection<VehicleItemViewModel> Vehicles
+		public List<Vehicle> MyVehicles { get; set; }
 
+		public ObservableCollection<VehicleItemViewModel> Vehicles
 		{
 			get { return this.vehicles; }
 			set { this.SetValue(ref this.vehicles, value); }
@@ -64,6 +65,38 @@ namespace Vehicles.ViewModels
 		#endregion
 
 		#region Metods
+		public void RefreshLIst()
+		{
+			var myListVehicleItemViewModel = MyVehicles.Select(p => new VehicleItemViewModel
+			{
+				VehicleId = p.VehicleId,
+				Brand = p.Brand,
+				Type = p.Type,
+				Owner = p.Owner,
+				Model = p.Model,
+				Mileage = p.Mileage,
+				Price = p.Price,
+				Specifications = p.Specifications,
+				ImagePath = p.ImagePath,
+				IsNegotiable = p.IsNegotiable,
+				ImageArray = p.ImageArray,
+			}
+			);
+			this.Vehicles = new ObservableCollection<VehicleItemViewModel>(
+				myListVehicleItemViewModel.OrderBy(p => p.Brand));
+		}
+		
+		#endregion
+
+		#region Comands
+		public ICommand RefreshCommand
+		{
+			get
+			{
+				return new RelayCommand(LoadVehicles);
+			}
+		}
+
 		private async void LoadVehicles()
 		{
 			this.IsRefreshing = true;
@@ -80,43 +113,18 @@ namespace Vehicles.ViewModels
 			var prefix = Application.Current.Resources["UrlPrefix"].ToString();
 			var controller = Application.Current.Resources["UrlVehiclesController"].ToString();
 
-			var response = await this.apiService.GetList<Vehicle>(url,prefix,controller);
+			var response = await this.apiService.GetList<Vehicle>(url, prefix, controller);
 			if (!response.IsSuccess)
 			{
 				this.IsRefreshing = false;
 				await Application.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
 				return;
 			}
-				var list = (List<Vehicle>)response.Result;
-				var myList = list.Select(p => new VehicleItemViewModel
-				{
-					VehicleId = p.VehicleId,
-					Brand = p.Brand,
-					Type = p.Type,
-					Owner = p.Owner,
-					Model = p.Model,
-					Mileage = p.Mileage,
-					Price = p.Price,
-					Specifications = p.Specifications,
-					ImagePath = p.ImagePath,
-					IsNegotiable = p.IsNegotiable,
-					ImageArray = p.ImageArray,
-				}
-				);
-				this.Vehicles = new ObservableCollection<VehicleItemViewModel>(myList);
-				this.IsRefreshing = false;
-
+			this.MyVehicles = (List<Vehicle>)response.Result;
+			this.RefreshLIst();
+			this.IsRefreshing = false;
 		}
-		#endregion
 
-		#region Comands
-		public ICommand RefreshCommand
-		{
-			get
-			{
-				return new RelayCommand(LoadVehicles);
-			}
-		}
 		#endregion
 
 	}

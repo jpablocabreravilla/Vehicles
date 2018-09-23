@@ -181,9 +181,6 @@
     <value>Saisissez le millage.</value>
   </data>
   <data name="IsNegotiable" xml:space="preserve">
-    <value>Est négociable?!</value>
-  </data>
-  <data name="IsNegotiablePlaceholder" xml:space="preserve">
     <value>Entrez si est négociable ...!</value>
   </data>
   <data name="ChangeImage" xml:space="preserve">
@@ -242,5 +239,8 @@
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirmer</value>
+  </data>
+  <data name="EditVehicle" xml:space="preserve">
+    <value>Editer le véhicule</value>
   </data>
 </root>

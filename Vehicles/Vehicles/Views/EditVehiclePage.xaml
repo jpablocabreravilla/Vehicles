@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:i18n="clr-namespace:Vehicles.Helpers"
+             x:Class="Vehicles.Views.EditVehiclePage"
+			 BindingContext="{Binding Main, Source={StaticResource Locator}}"
+			 Title="{i18n:Translate EditVehicle}">
+	<ContentPage.Content>
+		<ScrollView
+			BindingContext="{Binding EditVehicle}">
+			<StackLayout
+			Padding="5">
+				<Image
+					Source="{Binding ImageSource}">
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+					</Image.GestureRecognizers>
+				</Image>
+				<Label
+					FontSize="Small"
+					HorizontalOptions="Center"
+					Text="{i18n:Translate ChangeImage}">
+				</Label>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="1.5*"/>
+					</Grid.RowDefinitions>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="0"
+						Text="{i18n:Translate Brand}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="0"
+						Text="{Binding Vehicle.Brand}"
+						Placeholder="{i18n:Translate BrandPlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="1"
+						Text="{i18n:Translate Type}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="1"
+						Text="{Binding Vehicle.Type}"
+						Placeholder="{i18n:Translate TypePlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="2"
+						Text="{i18n:Translate Owner}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="2"
+						Text="{Binding Vehicle.Owner}"
+						Placeholder="{i18n:Translate OwnerPlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="3"
+						Text="{i18n:Translate Model}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="3"
+						Keyboard="Numeric"
+						Text="{Binding Vehicle.Model}"
+						Placeholder="{i18n:Translate ModelPlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="4"
+						Text="{i18n:Translate Mileage}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="4"
+						Keyboard="Numeric"
+						Text="{Binding Vehicle.Mileage}"
+						Placeholder="{i18n:Translate MileagePlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="5"
+						Text="{i18n:Translate Price}"
+						VerticalOptions="Center">
+					</Label>
+					<Entry
+						Grid.Column="1"
+						Grid.Row="5"
+						Keyboard="Numeric"
+						Text="{Binding Vehicle.Price}"
+						Placeholder="{i18n:Translate PricePlaceholder}">
+					</Entry>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="6"
+						Text="{i18n:Translate Specifications}"
+						VerticalOptions="Center">
+					</Label>
+					<Editor
+						Grid.Column="1"
+						Grid.Row="6"
+						Text="{Binding Vehicle.Specifications}"
+						VerticalOptions="FillAndExpand">
+					</Editor>
+					<Label 
+						Grid.Column="0"
+						Grid.Row="7"
+						Text="{i18n:Translate IsNegotiable}"
+						VerticalOptions="Center">
+					</Label>
+					<Switch
+						Grid.Column="1"
+						Grid.Row="7"
+						HorizontalOptions="End"
+						IsToggled="{Binding Vehicle.IsNegotiable}">
+					</Switch>
+				</Grid>
+
+				<ActivityIndicator
+					IsRunning="{Binding IsRunning}"
+					VerticalOptions="CenterAndExpand">
+				</ActivityIndicator>
+				<StackLayout
+					Orientation="Horizontal">
+					<Button
+						BackgroundColor="Navy"
+						BorderRadius="23"
+						Command="{Binding SaveCommand}"
+						HeightRequest="46"
+						HorizontalOptions="FillAndExpand"
+						IsEnabled="{Binding IsEnabled}"
+						Text="{i18n:Translate Save}"
+						TextColor="White">
+					</Button>
+					<Button
+						BackgroundColor="Red"
+						BorderRadius="23"
+						Command="{Binding DeleteCommand}"
+						HeightRequest="46"
+						HorizontalOptions="FillAndExpand"
+						IsEnabled="{Binding IsEnabled}"
+						Text="{i18n:Translate Delete}"
+						TextColor="White">
+					</Button>
+				</StackLayout>				
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

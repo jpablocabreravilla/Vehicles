@@ -10,15 +10,37 @@ namespace Vehicles.ViewModels
 {
 	public class MainViewModel
 	{
+		#region Properties
+		public EditVehicleViewModel EditVehicle { get; set; }
+
 		public VehiclesViewModel Vehicles { get; set; }
 
 		public AddVehicleViewModel AddVehicle { get; set; }
+		#endregion
 
+		#region Constructor
 		public MainViewModel()
 		{
+			instance = this;
 			this.Vehicles = new VehiclesViewModel();
 		}
+		#endregion
 
+		#region Singleton
+		private static MainViewModel instance;
+
+		public static MainViewModel GetInstance()
+		{
+			if (instance == null)
+			{
+				return new MainViewModel();
+			}
+
+			return instance;
+		}
+		#endregion
+
+		#region Commands
 		public ICommand AddVehicleCommand
 		{
 			get
@@ -31,7 +53,8 @@ namespace Vehicles.ViewModels
 		{
 			this.AddVehicle = new AddVehicleViewModel();
 			await Application.Current.MainPage.Navigation.PushAsync(new AddVehiclePage());
-		}
+		} 
+		#endregion
 
 	}
 }

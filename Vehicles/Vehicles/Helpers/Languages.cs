@@ -109,15 +109,11 @@ namespace Vehicles.Helpers
 			get { return Resource.SpecificationsPlaceholder; }
 		}
 
-		/*public static string IsNegotiable
+		public static string IsNegotiable
 		{
 			get { return Resource.IsNegotiable; }
 		}
-		public static string IsNegotiablePlaceholder
-		{
-			get { return Resource.IsNegotiablePlaceholder; }
-		}
-		*/
+		
 
 		public static string Save
 		{
@@ -212,6 +208,11 @@ namespace Vehicles.Helpers
 		public  static string Confirm
 		{
 			get { return Resource.Confirm; }
+		}
+
+		public static string EditVehicle
+		{
+			get { return Resource.EditVehicle; }
 		}
 	}
 }
