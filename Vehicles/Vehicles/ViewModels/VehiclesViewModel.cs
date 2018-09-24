@@ -16,6 +16,8 @@ namespace Vehicles.ViewModels
     {
 
 		#region Attributes
+		private string filter;
+
 		private ApiService apiService;
 
 		private bool isRefreshing;
@@ -26,6 +28,16 @@ namespace Vehicles.ViewModels
 		#endregion
 
 		#region Properties
+		public string Filter
+		{
+			get { return this.filter; }
+			set
+			{
+				this.filter = value;
+				this.RefreshLIst();
+			}
+		}
+
 		public List<Vehicle> MyVehicles { get; set; }
 
 		public ObservableCollection<VehicleItemViewModel> Vehicles
@@ -67,28 +79,59 @@ namespace Vehicles.ViewModels
 		#region Metods
 		public void RefreshLIst()
 		{
-			var myListVehicleItemViewModel = MyVehicles.Select(p => new VehicleItemViewModel
+			if (string.IsNullOrWhiteSpace(this.Filter))
 			{
-				VehicleId = p.VehicleId,
-				Brand = p.Brand,
-				Type = p.Type,
-				Owner = p.Owner,
-				Model = p.Model,
-				Mileage = p.Mileage,
-				Price = p.Price,
-				Specifications = p.Specifications,
-				ImagePath = p.ImagePath,
-				IsNegotiable = p.IsNegotiable,
-				ImageArray = p.ImageArray,
+				var myListVehicleItemViewModel = this.MyVehicles.Select(p => new VehicleItemViewModel
+				{
+					VehicleId = p.VehicleId,
+					Brand = p.Brand,
+					Type = p.Type,
+					Owner = p.Owner,
+					Model = p.Model,
+					Mileage = p.Mileage,
+					Price = p.Price,
+					Specifications = p.Specifications,
+					ImagePath = p.ImagePath,
+					IsNegotiable = p.IsNegotiable,
+					ImageArray = p.ImageArray,
+				});
+				this.Vehicles = new ObservableCollection<VehicleItemViewModel>(
+					myListVehicleItemViewModel.OrderBy(p => p.Brand));
 			}
-			);
-			this.Vehicles = new ObservableCollection<VehicleItemViewModel>(
-				myListVehicleItemViewModel.OrderBy(p => p.Brand));
+			else
+			{
+				var myListVehicleItemViewModel = this.MyVehicles.Select(p => new VehicleItemViewModel
+				{
+					VehicleId = p.VehicleId,
+					Brand = p.Brand,
+					Type = p.Type,
+					Owner = p.Owner,
+					Model = p.Model,
+					Mileage = p.Mileage,
+					Price = p.Price,
+					Specifications = p.Specifications,
+					ImagePath = p.ImagePath,
+					IsNegotiable = p.IsNegotiable,
+					ImageArray = p.ImageArray,
+				}).Where(p => p.Brand.ToLower().Contains(this.Filter.ToLower())).ToList();
+
+				this.Vehicles = new ObservableCollection<VehicleItemViewModel>(
+					myListVehicleItemViewModel.OrderBy(p => p.Brand));
+
+			}
 		}
-		
+
 		#endregion
 
 		#region Comands
+		public ICommand SearchCommand
+		{
+			get
+			{
+				return new RelayCommand(RefreshLIst);
+			}
+		}
+
 		public ICommand RefreshCommand
 		{
 			get
@@ -96,7 +139,7 @@ namespace Vehicles.ViewModels
 				return new RelayCommand(LoadVehicles);
 			}
 		}
-
+		
 		private async void LoadVehicles()
 		{
 			this.IsRefreshing = true;

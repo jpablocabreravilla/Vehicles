@@ -214,5 +214,10 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.EditVehicle; }
 		}
+
+		public static string Search
+		{
+			get { return Resource.Search; }
+		}
 	}
 }

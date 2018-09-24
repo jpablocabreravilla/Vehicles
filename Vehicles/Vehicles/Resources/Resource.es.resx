@@ -243,4 +243,7 @@
   <data name="EditVehicle" xml:space="preserve">
     <value>Editar Vehículo</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
 </root>
