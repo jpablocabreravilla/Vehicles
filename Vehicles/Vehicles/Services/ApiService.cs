@@ -13,7 +13,7 @@
 
 	public class ApiService
     {
-		
+
 		public async Task<Response> CheckConnection()
 		{
 			if (!CrossConnectivity.Current.IsConnected)
@@ -24,10 +24,8 @@
 					Message = Languages.TurnOnInternet,
 				};
 			}
-
-			//var urlGoogle = Application.Current.Resources["UrlGoogle"].ToString();  --ERROR INEXPLICABLE , PREGUNTAR A ZULU
-
-			var isReachable = await CrossConnectivity.Current.IsRemoteReachable("google.com");
+			// var urlGoogle = Application.Current.Resources["UrlGoogle"].ToString();  //ERROR. Dont run with this line
+			var isReachable = await CrossConnectivity.Current.IsRemoteReachable("www.google.com");
 			if (!isReachable)
 			{
 				return new Response

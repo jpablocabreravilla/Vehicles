@@ -8,7 +8,7 @@
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Icon="ic_action_add_circle" Command="{Binding AddVehicleCommand}"/>
 	</ContentPage.ToolbarItems>
-    <ContentPage.Content>
+	<ContentPage.Content>
 		<StackLayout
 			BindingContext="{Binding Vehicles}"
 			Padding="5">
@@ -37,35 +37,155 @@
 								</Grid.GestureRecognizers>
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="Auto"/>
-									<ColumnDefinition Width="*"/>
-									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="2*"/>
 									<ColumnDefinition Width="Auto"/>
 								</Grid.ColumnDefinitions>
 								<Image
 									Grid.Column="0"
 									Source="{Binding ImageFullPath}"
-									WidthRequest="100">
+									WidthRequest="117">
 								</Image>
 								<StackLayout
 									Grid.Column="1"
 									VerticalOptions="Center">
-									<Label
-									FontAttributes="Bold"
-									Text="{Binding Brand, StringFormat='{0:C2}'}">
+									<Grid
+										Padding="0">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" />
+											<ColumnDefinition Width="*" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Label 
+											Grid.Column="0"
+											Grid.Row="0"
+											FontAttributes="Bold"
+											TextColor="Black"
+											Text="{i18n:Translate Brand}"
+											VerticalOptions="Center">
+										</Label>
+										<Label	
+											Grid.Column="1"
+											Grid.Row="0"
+											FontAttributes="Italic"
+											TextColor="Black"
+											Text="{Binding Brand}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+										
+										<Label	
+											Grid.Column="0"
+											Grid.Row="1"
+											FontAttributes="Bold"
+											Text="{i18n:Translate Type}"
+											VerticalOptions="Center">
+										</Label>
+										<Label	
+											Grid.Column="1"
+											Grid.Row="1"
+											Text="{Binding Type}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+										
+										<Label 
+											Grid.Column="0"
+											Grid.Row="2"
+											FontAttributes="Bold"
+											Text="{i18n:Translate Owner}"
+											VerticalOptions="Center">
+										</Label>
+										<Label	
+											Grid.Column="1"
+											Grid.Row="2"
+											Text="{Binding Owner}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+										
+										<Label 
+											Grid.Column="0"
+											Grid.Row="3"
+											FontAttributes="Bold"
+											Text="{i18n:Translate Model}"
+											VerticalOptions="Center">
+										</Label>
+										<Label	
+											Grid.Column="1"
+											Grid.Row="3"
+											Text="{Binding Model}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+										
+										<Label 
+											Grid.Column="0"
+											Grid.Row="4"
+											FontAttributes="Bold"
+											Text="{i18n:Translate Mileage}"
+											VerticalOptions="Center">
+										</Label>
+										<Label	
+											Grid.Column="1"
+											Grid.Row="4"
+											Text="{Binding Mileage}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+										
+										<Label
+											Grid.Column="0"
+											Grid.Row="5"
+											FontAttributes="Bold"
+											Text="{i18n:Translate Price}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+										<Label
+											Grid.Column="1"
+											Grid.Row="5"
+											Text="{Binding Price, StringFormat='{0:C0}'}"
+											VerticalOptions="Center">
+										</Label>
+										
+										<Label 
+											Grid.Column="0"
+											Grid.Row="6"
+											FontAttributes="Bold"
+											Text="{i18n:Translate IsNegotiable}"
+											VerticalOptions="Center">
+										</Label>
+										<Label 
+											Grid.Column="1"
+											Grid.Row="6"
+											Text="{Binding IsNegotiable}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+										</Label>
+									</Grid>
+									<Label 
+											FontAttributes="Bold"
+											Text="{i18n:Translate Specifications}"
+											VerticalOptions="Center">
 									</Label>
 									<Label
-										Text="{Binding Specifications}">
+                                        	Text="{Binding Specifications}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center">
+									</Label>
+									<Label>
 									</Label>
 								</StackLayout>
-								<Label
-									Grid.Column="2"
-									HorizontalOptions="End"
-									Text="{Binding Price}"
-									VerticalOptions="Center">
-									<!--Preguntarle a zulu como darle espacio entre $ y el precio '{0:C2}' -->
-								</Label>
 								<Image
-									Grid.Column="3"
+									Grid.Column="2"
 									Source="ic_chevron_right"
 									VerticalOptions="Center">
 								</Image>
@@ -73,7 +193,7 @@
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
-			</ListView>					
-		</StackLayout>		
-    </ContentPage.Content>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>

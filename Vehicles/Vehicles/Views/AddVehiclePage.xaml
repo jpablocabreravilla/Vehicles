@@ -135,7 +135,7 @@
 						IsToggled="{Binding IsNegotiable}">
 					</Switch>
 				</Grid>
-				
+
 				<ActivityIndicator
 					IsRunning="{Binding IsRunning}"
 					VerticalOptions="CenterAndExpand">
