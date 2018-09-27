@@ -1,13 +1,12 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using Vehicles.Views;
-using Xamarin.Forms;
+﻿
 
 namespace Vehicles.ViewModels
 {
+	using System.Windows.Input;
+	using GalaSoft.MvvmLight.Command;
+	using Vehicles.Views;
+	using Xamarin.Forms;
+
 	public class MainViewModel
 	{
 		#region Properties

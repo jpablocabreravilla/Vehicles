@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Vehicles.Helpers
+﻿namespace Vehicles.Helpers
 {
-	using Xamarin.Forms;
 	using Interfaces;
 	using Resources;
+	using Xamarin.Forms;
+
 	public static class Languages
 	{
 		static Languages()
@@ -15,6 +12,8 @@ namespace Vehicles.Helpers
 			Resource.Culture = ci;
 			DependencyService.Get<ILocalize>().SetLocale(ci);
 		}
+
+		#region Metods Languages
 
 		public static string Accept
 		{
@@ -40,7 +39,7 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.TurnOnInternet; }
 		}
-		
+
 		public static string AddVehicle
 		{
 			get { return Resource.AddVehicle; }
@@ -113,7 +112,7 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.IsNegotiable; }
 		}
-		
+
 
 		public static string Save
 		{
@@ -205,7 +204,7 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.No; }
 		}
-		public  static string Confirm
+		public static string Confirm
 		{
 			get { return Resource.Confirm; }
 		}
@@ -219,5 +218,7 @@ namespace Vehicles.Helpers
 		{
 			get { return Resource.Search; }
 		}
+		#endregion
+
 	}
 }

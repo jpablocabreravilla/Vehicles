@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vehicles.ViewModels;
-
-namespace Vehicles.Infraestructure
+﻿namespace Vehicles.Infraestructure
 {
+	using Vehicles.ViewModels;
+
 	public class InstanceLocator
 	{
 		public MainViewModel Main { get; set; }

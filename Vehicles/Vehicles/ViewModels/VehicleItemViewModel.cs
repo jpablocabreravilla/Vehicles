@@ -1,9 +1,8 @@
 ﻿namespace Vehicles.ViewModels
 {
-	using GalaSoft.MvvmLight.Command;
-	using System;
 	using System.Linq;
 	using System.Windows.Input;
+	using GalaSoft.MvvmLight.Command;
 	using Vehicles.Helpers;
 	using Vehicles.Models;
 	using Vehicles.Services;

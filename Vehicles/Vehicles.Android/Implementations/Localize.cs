@@ -2,7 +2,6 @@
 
 namespace Vehicles.Droid.Implementations
 {
-	using Xamarin.Forms;
 	using System.Globalization;
 	using System.Threading;
 	using Helpers;

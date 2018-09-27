@@ -1,15 +1,14 @@
 ﻿namespace Vehicles.Services
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Net.Http;
+	using System.Text;
 	using System.Threading.Tasks;
 	using Newtonsoft.Json;
 	using Plugin.Connectivity;
-	using System;
 	using Vehicles.Helpers;
 	using Vehicles.Models;
-	using Xamarin.Forms;
-	using System.Text;
 
 	public class ApiService
     {
@@ -24,7 +23,7 @@
 					Message = Languages.TurnOnInternet,
 				};
 			}
-			// var urlGoogle = Application.Current.Resources["UrlGoogle"].ToString();  //ERROR. Dont run with this line
+
 			var isReachable = await CrossConnectivity.Current.IsRemoteReachable("www.google.com");
 			if (!isReachable)
 			{

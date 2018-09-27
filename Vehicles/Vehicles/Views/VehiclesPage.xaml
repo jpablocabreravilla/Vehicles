@@ -146,13 +146,13 @@
 											Grid.Row="5"
 											FontAttributes="Bold"
 											Text="{i18n:Translate Price}"
-											HorizontalOptions="Start"
 											VerticalOptions="Center">
 										</Label>
 										<Label
 											Grid.Column="1"
 											Grid.Row="5"
-											Text="{Binding Price, StringFormat='{0:C0}'}"
+											Text="{Binding Price, StringFormat='{0:C2}'}"
+											HorizontalOptions="Start"
 											VerticalOptions="Center">
 										</Label>
 										
@@ -166,7 +166,7 @@
 										<Label 
 											Grid.Column="1"
 											Grid.Row="6"
-											Text="{Binding IsNegotiable}"
+											Text="{Binding StringIsNegotiable}"
 											HorizontalOptions="Start"
 											VerticalOptions="Center">
 										</Label>
@@ -187,6 +187,7 @@
 								<Image
 									Grid.Column="2"
 									Source="ic_chevron_right"
+									HorizontalOptions="End"
 									VerticalOptions="Center">
 								</Image>
 							</Grid>

@@ -138,9 +138,6 @@
   <data name="Specifications" xml:space="preserve">
     <value>Spécifications</value>
   </data>
-  <data name="SpecificationsPlaceholder" xml:space="preserve">
-    <value>Entrez les spécifications du véhicule s&amp;#39;il vous plaît ...!</value>
-  </data>
   <data name="Price" xml:space="preserve">
     <value>Prix</value>
   </data>
@@ -148,9 +145,6 @@
     <value>Entrez le prix du véhicule s’il vous plaît... !</value>
   </data>
   <data name="Brand" xml:space="preserve">
-    <value>Brand</value>
-  </data>
-  <data name="BrandPlaceholder" xml:space="preserve">
     <value>Brand</value>
   </data>
   <data name="Save" xml:space="preserve">
@@ -166,25 +160,19 @@
     <value>Propriétaire</value>
   </data>
   <data name="OwnerPlaceholder" xml:space="preserve">
-    <value>Entrez le propriétaire ...!</value>
+    <value>Entrez le propriétaire</value>
   </data>
   <data name="Model" xml:space="preserve">
     <value>Modèle</value>
   </data>
   <data name="ModelPlaceholder" xml:space="preserve">
-    <value>Entrez le modèle ...!</value>
+    <value>Entrez le modèle</value>
   </data>
   <data name="Mileage" xml:space="preserve">
     <value>Kilométrage</value>
   </data>
   <data name="MileagePlaceholder" xml:space="preserve">
     <value>Saisissez le millage.</value>
-  </data>
-  <data name="IsNegotiable" xml:space="preserve">
-    <value>Entrez si est négociable ...!</value>
-  </data>
-  <data name="ChangeImage" xml:space="preserve">
-    <value>Touchez l&amp;#39;image pour la changer.</value>
   </data>
   <data name="BrandError" xml:space="preserve">
     <value>Vous devez entrer une marque!</value>
@@ -245,5 +233,17 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Rechercher !</value>
+  </data>
+  <data name="SpecificationsPlaceholder" xml:space="preserve">
+    <value>Spécifications des véhicules</value>
+  </data>
+  <data name="IsNegotiable" xml:space="preserve">
+    <value>Est négociable?</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Touchez image pour la changer.</value>
+  </data>
+  <data name="BrandPlaceholder" xml:space="preserve">
+    <value>Entrez la marque... !</value>
   </data>
 </root>

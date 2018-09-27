@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Vehicles.Helpers;
 
 namespace Vehicles.Models
 {
@@ -43,6 +42,21 @@ namespace Vehicles.Models
 		public override string ToString()
 		{
 			return this.Brand;
+		}
+
+		public string StringIsNegotiable
+		{
+			get
+			{
+				if (this.IsNegotiable)
+				{
+					return Languages.Yes;
+				}
+				else
+				{
+					return Languages.No;
+				}
+			}
 		}
 
 	}

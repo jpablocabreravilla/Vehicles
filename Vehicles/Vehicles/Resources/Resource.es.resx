@@ -151,7 +151,7 @@
     <value>Marca</value>
   </data>
   <data name="BrandPlaceholder" xml:space="preserve">
-    <value>Ingrese la marca de el Vehiculo ...</value>
+    <value>Ingrese la marca...</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Guardar</value>

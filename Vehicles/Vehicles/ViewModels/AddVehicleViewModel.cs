@@ -1,14 +1,12 @@
 ﻿namespace Vehicles.ViewModels
 {
-	using System;
-	using System.Linq;
 	using System.Windows.Input;
 	using GalaSoft.MvvmLight.Command;
+	using Plugin.Media;
+	using Plugin.Media.Abstractions;
 	using Vehicles.Helpers;
 	using Vehicles.Models;
 	using Vehicles.Services;
-	using Plugin.Media;
-	using Plugin.Media.Abstractions;
 	using Xamarin.Forms;
 
 	public class AddVehicleViewModel : BaseViewModel

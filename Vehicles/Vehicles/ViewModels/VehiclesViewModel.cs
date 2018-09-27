@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Windows.Input;
-using Vehicles.Models;
-using Vehicles.Services;
-using Xamarin.Forms;
-using GalaSoft.MvvmLight.Command;
-using Vehicles.Helpers;
-using System.Linq;
-
-namespace Vehicles.ViewModels
+﻿namespace Vehicles.ViewModels
 {
-    public class VehiclesViewModel : BaseViewModel
+	using System.Collections.Generic;
+	using System.Collections.ObjectModel;
+	using System.Linq;
+	using System.Windows.Input;
+	using GalaSoft.MvvmLight.Command;
+	using Vehicles.Helpers;
+	using Vehicles.Models;
+	using Vehicles.Services;
+	using Xamarin.Forms;
+
+	public class VehiclesViewModel : BaseViewModel
     {
 
 		#region Attributes

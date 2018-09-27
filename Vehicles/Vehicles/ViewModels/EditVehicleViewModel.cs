@@ -1,18 +1,16 @@
-﻿using GalaSoft.MvvmLight.Command;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using Vehicles.Helpers;
-using Vehicles.Models;
-using Vehicles.Services;
-using Xamarin.Forms;
-
-namespace Vehicles.ViewModels
+﻿namespace Vehicles.ViewModels
 {
+	using System;
+	using System.Linq;
+	using System.Windows.Input;
+	using GalaSoft.MvvmLight.Command;
+	using Plugin.Media;
+	using Plugin.Media.Abstractions;
+	using Vehicles.Helpers;
+	using Vehicles.Models;
+	using Vehicles.Services;
+	using Xamarin.Forms;
+
 	public class EditVehicleViewModel : BaseViewModel
 	{
 		#region Atributes

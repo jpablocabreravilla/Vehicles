@@ -7,6 +7,7 @@
 	using Interfaces;
 	using Xamarin.Forms;
 	using Xamarin.Forms.Xaml;
+
 	[ContentProperty("Text")]
 	public class TranslateExtension : IMarkupExtension
 	{

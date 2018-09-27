@@ -138,9 +138,6 @@
   <data name="Specifications" xml:space="preserve">
     <value>Specifiche</value>
   </data>
-  <data name="SpecificationsPlaceholder" xml:space="preserve">
-    <value>Inserisci per favore... le specifiche del veicolo!</value>
-  </data>
   <data name="Price" xml:space="preserve">
     <value>Prezzo</value>
   </data>
@@ -148,9 +145,6 @@
     <value>Inserisci il prezzo del veicolo per favore...!</value>
   </data>
   <data name="Brand" xml:space="preserve">
-    <value>Marchio</value>
-  </data>
-  <data name="BrandPlaceholder" xml:space="preserve">
     <value>Marchio</value>
   </data>
   <data name="Save" xml:space="preserve">
@@ -166,25 +160,19 @@
     <value>Possessore</value>
   </data>
   <data name="OwnerPlaceholder" xml:space="preserve">
-    <value>Inserisci il proprietario ...!</value>
+    <value>Inserisci il proprietario</value>
   </data>
   <data name="Model" xml:space="preserve">
     <value>Modello</value>
   </data>
   <data name="ModelPlaceholder" xml:space="preserve">
-    <value>Entra nel modello ...!</value>
+    <value>Entra nel modello</value>
   </data>
   <data name="Mileage" xml:space="preserve">
     <value>Chilometri</value>
   </data>
   <data name="MileagePlaceholder" xml:space="preserve">
     <value>Inserisci il chilometraggio ...!</value>
-  </data>
-  <data name="IsNegotiable" xml:space="preserve">
-    <value>Inserisci se è negoziabile ...!</value>
-  </data>
-  <data name="ChangeImage" xml:space="preserve">
-    <value>Tocca l&amp;#39;immagine per cambiarla.!</value>
   </data>
   <data name="BrandError" xml:space="preserve">
     <value>Devi inserire un marchio!</value>
@@ -245,5 +233,17 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Cerca!</value>
+  </data>
+  <data name="SpecificationsPlaceholder" xml:space="preserve">
+    <value>Specifiche veicolo</value>
+  </data>
+  <data name="IsNegotiable" xml:space="preserve">
+    <value>È negoziabile?</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Tocca immagine per cambiarla.</value>
+  </data>
+  <data name="BrandPlaceholder" xml:space="preserve">
+    <value>Inserisci la marca...!</value>
   </data>
 </root>
